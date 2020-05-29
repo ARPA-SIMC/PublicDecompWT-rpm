@@ -1,6 +1,6 @@
 Name:           PublicDecompWT
 Version:        2.7.2
-Release:        1
+Release:        2
 Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
@@ -51,6 +51,20 @@ install -D -m0644 %{_builddir}/%{name}-%{version}/DISE/libDISE.a %{buildroot}/%{
 # Bin
 install -D -m0644 %{_builddir}/%{name}-%{version}/xRITDecompress/xRITDecompress %{buildroot}/%{_bindir}/xRITDecompress
 
+mkdir %{buildroot}/%{_libdir}/pkgconfig/
+cat > %{buildroot}/%{_libdir}/pkgconfig/libpublicdecompwt.pc <<EOF
+prefix=%{_prefix}
+exec_prefix=%{_exec_prefix}
+libdir=%{_libdir}
+includedir=%{_includedir}
+
+Name: libpublicdecompwt
+Description: Wavelet decompression library for xRIT files from MeteoSat Second Generation
+Version: %{version}
+
+Cflags: -I\${includedir}/PublicDecompWT
+Libs: -L\${libdir} -lpublicdecompwt
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,7 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_includedir}/%{name}/*.h
 %{_libdir}/%{name}/*.a
+%{_libdir}/pkgconfig/libpublicdecompwt.pc
 
 %changelog
+* Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-2
+- Added pkgconfig file (#1)
+
 * Thu Apr 30 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-1
 - First build
