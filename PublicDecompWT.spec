@@ -1,6 +1,6 @@
 Name:           PublicDecompWT
 Version:        2.7.2
-Release:        2
+Release:        3
 Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
@@ -27,10 +27,9 @@ Wavelet decompression tool for xRIT files from MSG
 
 %build
 cd COMP
-BITS=glibc make 
+BITS=glibc make LDFLAGS=-fPIC
 cd ../xRITDecompress
 make
-
 
 %install
 
@@ -63,7 +62,8 @@ Description: Wavelet decompression library for xRIT files from MeteoSat Second G
 Version: %{version}
 
 Cflags: -I\${includedir}/PublicDecompWT
-Libs: -L\${libdir} -lpublicdecompwt
+Libs: -L\${libdir}/PublicDecompWT/ -lCOMP -lDISE -lJPEG -lT4 -lWT
+
 EOF
 
 %clean
@@ -80,6 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/libpublicdecompwt.pc
 
 %changelog
+* Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-3
+- added fPIC option, fixed pkgconfig file (#1)
+
 * Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-2
 - Added pkgconfig file (#1)
 
