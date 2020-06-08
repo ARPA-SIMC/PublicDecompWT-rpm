@@ -1,6 +1,6 @@
 Name:           PublicDecompWT
 Version:        2.7.2
-Release:        4
+Release:        5
 Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
@@ -50,7 +50,7 @@ install -D -m0644 %{_builddir}/%{name}-%{version}/COMP/Src/libCOMP.a %{buildroot
 install -D -m0644 %{_builddir}/%{name}-%{version}/DISE/libDISE.a %{buildroot}/%{_libdir}/%{name}/libDISE.a
 
 # Bin
-install -D -m0644 %{_builddir}/%{name}-%{version}/xRITDecompress/xRITDecompress %{buildroot}/%{_bindir}/xRITDecompress
+install -D -m0755 %{_builddir}/%{name}-%{version}/xRITDecompress/xRITDecompress %{buildroot}/%{_bindir}/xRITDecompress
 
 mkdir %{buildroot}/%{_libdir}/pkgconfig/
 cat > %{buildroot}/%{_libdir}/pkgconfig/libpublicdecompwt.pc <<EOF
@@ -82,11 +82,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/libpublicdecompwt.pc
 
 %changelog
+* Mon Jun  8 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-5
+- Fixed permission in xRITDecompress binary
+
 * Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-4
-- added DISE lib compilation, fixed fPIC option
+- Added DISE lib compilation, fixed fPIC option
 
 * Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-3
-- added fPIC option, fixed pkgconfig file (#1)
+- Added fPIC option, fixed pkgconfig file (#1)
 
 * Fri May 29 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-2
 - Added pkgconfig file (#1)
