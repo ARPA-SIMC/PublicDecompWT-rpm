@@ -21,7 +21,7 @@ then
     sed -i '/^tsflags=/d' /etc/dnf/dnf.conf
     dnf install -q -y epel-release
     dnf install -q -y 'dnf-command(config-manager)'
-    dnf config-manager --set-enabled PowerTools
+    dnf config-manager --set-enabled powertools
     dnf groupinstall -q -y "Development Tools"
     dnf install -q -y 'dnf-command(builddep)'
     dnf install -q -y git
@@ -49,8 +49,6 @@ then
     spectool -g -R -S ~/rpmbuild/SPECS/PublicDecompWT.spec
     set +x
     rpmbuild -ba ~/rpmbuild/SPECS/PublicDecompWT.spec 2>&1 | pv -q -L 3k
-    find ~/rpmbuild/{RPMS,SRPMS}/ -name "${pkgname}*rpm" -exec cp -v {} . \;
-    # TODO upload ${pkgname}*.rpm to github release on deploy stage
 else
     echo "Unsupported image"
     exit 1
