@@ -1,6 +1,6 @@
 Name:           PublicDecompWT
-Version:        2.7.2
-Release:        5
+Version:        2.8.1
+Release:        1
 Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
@@ -82,6 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/libpublicdecompwt.pc
 
 %changelog
+* Thu Jun  1 2023 Daniele Branchini <dbranchini@arpae.it> - 2.8.1-1
+- Upstream update
+
 * Mon Jun  8 2020 Daniele Branchini <dbranchini@arpae.it> - 2.7.2-5
 - Fixed permission in xRITDecompress binary
 
