@@ -31,7 +31,7 @@ BITS="glibc -fPIC" make
 cd ../DISE
 BITS="glibc -fPIC" make
 cd ../xRITDecompress
-make
+make all
 
 %install
 
