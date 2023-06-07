@@ -5,6 +5,9 @@ Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
 Source:         https://gitlab.eumetsat.int/open-source/PublicDecompWT/-/archive/%{version}/%{name}-%{version}.tar.gz
+# Include ctime in header file DISE/UTCTime.h
+# https://github.com/ARPA-SIMC/PublicDecompWT-rpm/issues/2
+Patch0:         https://raw.githubusercontent.com/ARPA-SIMC/PublicDecompWT-rpm/v%{version}-%{release}/include-time-header.patch
 BuildRequires:  binutils
 BuildRequires:  gcc-c++
 
@@ -24,6 +27,7 @@ Wavelet decompression tool for xRIT files from MSG
 
 %prep
 %setup
+%patch0
 
 %build
 cd COMP
