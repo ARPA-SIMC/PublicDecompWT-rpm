@@ -1,6 +1,6 @@
 Name:           PublicDecompWT
 Version:        2.8.1
-Release:        2
+Release:        3
 Summary:        Wavelet decompression tool for xRIT files from MSG
 License:        Apache 2.0
 URL:            https://gitlab.eumetsat.int/open-source/PublicDecompWT
@@ -27,7 +27,7 @@ Wavelet decompression tool for xRIT files from MSG
 
 %prep
 %setup
-%patch0
+%patch 0
 
 %build
 cd COMP
@@ -86,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/libpublicdecompwt.pc
 
 %changelog
+* Wed May 28 2025 Daniele Branchini <dbranchini@arpae.it> - 2.8.1-3
+- updated patch syntax
+
 * Wed Jun  6 2023 Emanuele Di Giacomo <edigiacomo@arpae.it> - 2.8.1-2
 - Patch for DISE/UTCTime.h (#2)
 
