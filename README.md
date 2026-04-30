@@ -1,7 +1,8 @@
 [![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/rocky8.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
 [![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/rocky9.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
-[![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/fedora40.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
+[![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/rocky10.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
 [![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/fedora42.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
+[![Build Status](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/fedora44.png)](https://simc.arpae.it/moncic-ci/PublicDecompWT-rpm/)
 [![Build Status](https://copr.fedorainfracloud.org/coprs/simc/stable/package/PublicDecompWT/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/simc/stable/package/PublicDecompWT/)
 
 # rpm packaging files for eumetsat's PublicDecompWT
